@@ -250,8 +250,8 @@ data/trainTrackA.csv
 
 **Ahmad Hazami**
 
-GitHub: [@your-github-username](https://github.com/hazami-razip)
-         [@your-github-username](https://github.com/malkunn)
+GitHub: [@hazami-razip](https://github.com/hazami-razip)
+         [@malkunn](https://github.com/malkunn)
 
 ---
 
