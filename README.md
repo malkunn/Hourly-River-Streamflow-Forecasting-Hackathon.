@@ -1,40 +1,47 @@
-````markdown
 # 🌊 Hourly River Streamflow Forecasting Hackathon
 
 ## 📌 Project Overview
 
 This repository contains the code and workflow for the **Hourly River Streamflow Forecasting Hackathon** hosted on Kaggle.
 
-The main objective of this competition is to develop a machine learning or deep learning model that can accurately forecast **hourly river streamflow** based on historical hydrological data.
+The objective of this project is to build a machine learning or deep learning model that can forecast **hourly river streamflow** using historical hydrological data.
 
 Accurate streamflow forecasting is important for:
 
-- Flood prediction and early warning systems
-- Water resource management
-- Hydrological planning
-- Environmental monitoring
-- Disaster risk reduction
+* Flood prediction
+* Water resource management
+* Hydrological monitoring
+* Disaster risk reduction
+* Environmental planning
 
 ---
 
 ## 🏆 Kaggle Competition
 
-This project is based on the Kaggle competition:
+This project is based on the Kaggle competition below:
 
-🔗 **Competition Link:**  
+🔗 **Competition Link:**
 [Hourly River Streamflow Forecasting Hackathon](https://www.kaggle.com/competitions/hourly-streamflow-forecasting-hackathon)
 
 ---
 
 ## 📂 Dataset
 
-The dataset is provided by Kaggle and is **not included in this repository** because of file size limitations and Kaggle competition rules.
+The dataset is provided by Kaggle and is **not uploaded to this repository** due to file size limitations and competition rules.
 
-Please download the dataset manually from the competition page:
+Please download the dataset manually from the Kaggle competition page:
 
 👉 [Download Dataset from Kaggle](https://www.kaggle.com/competitions/hourly-streamflow-forecasting-hackathon/data)
 
-After downloading, place the dataset inside the project folder using the structure below:
+After downloading, place the dataset inside the `data/` folder.
+
+Required file path:
+
+```text
+data/trainTrackA.csv
+```
+
+Example folder structure:
 
 ```text
 Hourly-River-Streamflow-Forecasting-Hackathon/
@@ -42,76 +49,59 @@ Hourly-River-Streamflow-Forecasting-Hackathon/
 ├── data/
 │   ├── trainTrackA.csv
 │   ├── testTrackA.csv
-│   └── sample_submission.csv
+│   ├── trainTrackB.csv
+│   ├── testTrackB.csv
+│   └── example_submission.csv
 │
 ├── notebooks/
 │   └── model_training.ipynb
 │
-├── src/
-│   └── preprocessing.py
+├── outputs/
+│   └── submission.csv
 │
 ├── README.md
 └── requirements.txt
-````
-
-Required dataset path:
-
-```text
-/data/trainTrackA.csv
 ```
 
 ---
 
 ## 🎯 Project Objective
 
-The goal of this project is to build a forecasting model that can predict hourly river streamflow values with the lowest possible error.
+The goal of this project is to develop a forecasting model that can predict hourly river streamflow values with the lowest possible prediction error.
 
 The model performance is evaluated using **Root Mean Squared Error (RMSE)**.
 
-A lower RMSE value indicates better prediction performance.
+A lower RMSE value means the model prediction is better.
 
 ---
 
 ## 🧠 Methodology
 
-The general workflow of this project includes:
+The project workflow includes:
 
 1. **Data Loading**
-
-   * Load training and testing datasets from Kaggle.
+   Load the training and testing datasets from Kaggle.
 
 2. **Exploratory Data Analysis**
-
-   * Understand streamflow patterns.
-   * Check missing values.
-   * Analyze trends, seasonality, and extreme flow events.
+   Analyze the streamflow pattern, missing values, trend, seasonality, and peak flow behavior.
 
 3. **Data Preprocessing**
-
-   * Handle missing values.
-   * Normalize or scale numerical features.
-   * Create time-series sequences.
-   * Prepare training and validation data.
+   Clean the dataset, scale numerical values, and prepare time-series sequences for model training.
 
 4. **Model Development**
+   Train and compare forecasting models such as:
 
-   * Train forecasting models such as:
-
-     * Baseline model
-     * LSTM
-     * GRU
-     * Bidirectional LSTM
-     * Hybrid deep learning models
+   * Baseline model
+   * LSTM
+   * GRU
+   * Bidirectional LSTM
+   * Hybrid deep learning model
 
 5. **Model Evaluation**
+   Evaluate the model using RMSE and compare the performance between different model versions.
 
-   * Evaluate performance using RMSE.
-   * Compare model improvements.
-   * Analyze prediction errors, especially during peak flow periods.
-
-6. **Submission**
-
-   * Generate the final Kaggle submission file.
+6. **Kaggle Submission**
+   Generate the final `submission.csv` file and upload it to Kaggle.
 
 ---
 
@@ -119,11 +109,9 @@ The general workflow of this project includes:
 
 The main evaluation metric used in this competition is:
 
-```text
-Root Mean Squared Error (RMSE)
-```
+**Root Mean Squared Error (RMSE)**
 
-RMSE is calculated as:
+RMSE formula:
 
 ```text
 RMSE = sqrt(mean((actual - predicted)^2))
@@ -146,7 +134,7 @@ cd Hourly-River-Streamflow-Forecasting-Hackathon
 
 Download the dataset from Kaggle:
 
-🔗 [Kaggle Dataset Page](https://www.kaggle.com/competitions/hourly-streamflow-forecasting-hackathon/data)
+[Download Dataset](https://www.kaggle.com/competitions/hourly-streamflow-forecasting-hackathon/data)
 
 Then place the files inside the `data/` folder.
 
@@ -164,20 +152,12 @@ data/sample_submission.csv
 pip install -r requirements.txt
 ```
 
-If you are using Google Colab, you may install the required libraries directly inside the notebook.
-
 ### 4. Run the Notebook
 
-Open the notebook file and run all cells:
+Open and run the notebook:
 
 ```text
 notebooks/model_training.ipynb
-```
-
-Or run the Python script if available:
-
-```bash
-python src/train.py
 ```
 
 ---
@@ -193,8 +173,8 @@ This project may use the following tools and libraries:
 * Scikit-learn
 * TensorFlow / Keras
 * PyTorch
-* Kaggle API
 * Google Colab
+* Kaggle API
 
 ---
 
@@ -203,8 +183,8 @@ This project may use the following tools and libraries:
 | Stage        | Model / Method               | Description                                                               |
 | ------------ | ---------------------------- | ------------------------------------------------------------------------- |
 | Assessment 1 | Baseline Model               | Initial model used as the starting benchmark                              |
-| Assessment 2 | Improved Deep Learning Model | Added better preprocessing and sequence learning                          |
-| Assessment 3 | Final Model                  | Improved model tuning, feature handling, and final submission preparation |
+| Assessment 2 | Improved Deep Learning Model | Improved preprocessing and sequence learning                              |
+| Assessment 3 | Final Model                  | Final tuned model with better feature handling and submission preparation |
 
 ---
 
@@ -212,9 +192,9 @@ This project may use the following tools and libraries:
 
 Some challenges in this competition include:
 
-* River streamflow data has strong time-series dependency.
+* River streamflow has strong time-series dependency.
 * Peak flow events are difficult to predict accurately.
-* Hydrological patterns may change over time.
+* Hydrological patterns can change over time.
 * Deep learning models require careful tuning.
 * Large datasets may cause memory issues in Google Colab.
 
@@ -232,7 +212,7 @@ The final model aims to reduce RMSE and improve prediction accuracy compared to 
 
 ---
 
-## 📤 Submission Format
+## 📤 Submission
 
 The final prediction file should follow the format provided in:
 
@@ -240,52 +220,25 @@ The final prediction file should follow the format provided in:
 sample_submission.csv
 ```
 
-Example submission file:
+Final output file:
 
 ```text
 submission.csv
 ```
 
-Upload the generated submission file to the Kaggle competition page:
+Upload the submission file here:
 
 🔗 [Submit on Kaggle](https://www.kaggle.com/competitions/hourly-streamflow-forecasting-hackathon/submissions)
 
 ---
 
-## 📁 Repository Structure
-
-```text
-Hourly-River-Streamflow-Forecasting-Hackathon/
-│
-├── data/
-│   ├── trainTrackA.csv
-│   ├── testTrackA.csv
-│   └── sample_submission.csv
-│
-├── notebooks/
-│   └── model_training.ipynb
-│
-├── src/
-│   ├── preprocessing.py
-│   ├── train.py
-│   └── predict.py
-│
-├── outputs/
-│   └── submission.csv
-│
-├── README.md
-└── requirements.txt
-```
-
----
-
 ## ⚠️ Important Note
 
-The dataset is not uploaded to this repository.
+The dataset is not included in this repository.
 
-Please download the files manually from Kaggle and place them in the correct folder before running the code.
+Please download the dataset manually from Kaggle and place it in the correct folder before running the notebook.
 
-Required file path:
+Required path:
 
 ```text
 data/trainTrackA.csv
@@ -306,7 +259,3 @@ GitHub: [@your-github-username](https://github.com/your-github-username)
 This project is created for educational and competition purposes.
 
 Please follow Kaggle’s competition rules and dataset usage policy.
-
-```
-```
-
